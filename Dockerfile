@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3-alpine
 
 # install flask python package
 RUN pip install --no-cache-dir flask
@@ -6,10 +6,8 @@ RUN pip install --no-cache-dir flask
 # copy all app files inside the image
 COPY . .
 
-# set flask variables
+# set flask application variable
 ENV FLASK_APP=app
-ENV FLASK_ENV=development
-ENV FLASK_RUN_PORT=5000
+ENV FLASK_DEBUG=1
 
-# run flask application
-RUN flask run
+CMD [ "python", "app.py" ]
