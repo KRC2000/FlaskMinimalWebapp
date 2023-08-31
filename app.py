@@ -22,7 +22,11 @@ def put():
 if __name__ == '__main__':
 	client = MongoClient("mongodb://mongo:27017/")
 	db = client["base"]
-	collection = db.create_collection("collection")
+	collection = db['collection']
+	if collection is not None:
+		app.logger.info(f'Collection exists! Damn!')
+	else:
+		app.logger.info(f'Collection does not exists - cringe!')
 	collection.insert_one({'individual': 'fat', 'cock': 'thick'})
 
 	for record in collection.find():
