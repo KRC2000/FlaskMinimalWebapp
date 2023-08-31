@@ -3,6 +3,10 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
+client = MongoClient("mongodb://mongo:27017/")
+db = client['base']
+collection = db['collection']
+
 @app.route('/')
 def index():
 	return render_template('index.html')
@@ -14,21 +18,13 @@ def put():
 		data = request.get_json()
 		if data is not None:
 			app.logger.info(f'Received data: {data}')
+			collection.insert_one(data)
 			return {'message': 'Data received'}, 200
 		else:
 			return {'message': 'No data provided'}, 400
 
 
 if __name__ == '__main__':
-	client = MongoClient("mongodb://mongo:27017/")
-	db = client["base"]
-	collection = db['collection']
-	if collection is not None:
-		app.logger.info(f'Collection exists! Damn!')
-	else:
-		app.logger.info(f'Collection does not exists - cringe!')
-	collection.insert_one({'individual': 'fat', 'cock': 'thick'})
-
 	for record in collection.find():
 		print(record)
 	
