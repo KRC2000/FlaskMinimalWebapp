@@ -3,13 +3,14 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 
-client = MongoClient("mongodb://mongo:27017/")
-db = client['base']
-collection = db['collection']
+# client = MongoClient("mongodb://mongo:27017/")
+# db = client['base']
+# collection = db['collection']
 
-@app.route('/')
+@app.get('/')
 def index():
-	return render_template('index.html')
+	items = ['bonk', 'sus', 'other shit']
+	return render_template('index.html', items=items)
 
 @app.route('/', methods=['PUT'])
 def put():
@@ -25,7 +26,7 @@ def put():
 
 
 if __name__ == '__main__':
-	for record in collection.find():
-		print(record)
+	# for record in collection.find():
+	# 	print(record)
 	
 	app.run(host='0.0.0.0', port=5000)

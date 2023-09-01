@@ -2,7 +2,7 @@ document.getElementById('b').addEventListener('click', put);
 
 function put() {
     const textFieldValue = document.getElementById('textarea').value;
-    const url = 'http://188.34.192.184';
+    const url = 'http://localhost';
 
     fetch(url, {
         method: 'PUT',

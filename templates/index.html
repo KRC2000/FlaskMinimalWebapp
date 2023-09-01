@@ -20,6 +20,10 @@
 		<button id="b" class="btn btn-primary mt-3">Submit</button>
 	</div>
 
+	{% for item in items %}
+        <h2>{{ item }}</h2>
+    {% endfor %}
+
 	<script src="../static/javascript/index.js"></script>
 </body>
 
