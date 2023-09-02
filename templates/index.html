@@ -13,18 +13,21 @@
 	<title>FlaskBlog</title>
 </head>
 
-<body>
-	<div class="form-group mx-5 mt-2">
-		<label style="font-size: larger;" for="textarea">Enter a string</label>
-		<textarea id="textarea" class="form-control mt-1" rows="3"></textarea>
-		<button id="b" class="btn btn-primary mt-3">Submit</button>
-	</div>
+<body class="p-3">
+	<a id="new" class="btn btn-primary" href="/create">+ Add new record</a>
 
 	{% for item in items %}
-        <h2>{{ item }}</h2>
-    {% endfor %}
+	<div class="card mt-3" style="width: 100%">
+		<div class="card-body">
+			<h5 class="card-title"><a href="/records/{{ item['_id'] }}">{{ item['title'] }}</a></h5>
+			<p class="card-text">
+				{{ item['body'] }}
+			</p>
+		</div>
+	</div>
+	{% endfor %}
 
-	<script src="../static/javascript/index.js"></script>
+	<!-- <script href="{{ url_for('static', filename= 'javascript/create.js') }}"></script> -->
 </body>
 
 </html>
