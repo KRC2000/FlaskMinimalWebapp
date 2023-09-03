@@ -1,6 +1,30 @@
-h1 {
-    border: 2px #eee solid;
-    color: brown;
-    text-align: center;
-    padding: 10px;
+.a-button {
+    color: black;
+    padding: 1ex;
+    border: solid black thin;
+    border-radius: 3px;
+    
+}
+
+button.primary {
+    padding: 1ex;
+    color: black;
+}
+
+.card {
+    border: solid black thin;
+    border-radius: 10px;
+    
+}
+
+.card * {
+    margin-left: 2ex;
+}
+
+.mb {
+    margin-bottom: 1ex;
+}
+
+textarea {
+    resize: none;
 }

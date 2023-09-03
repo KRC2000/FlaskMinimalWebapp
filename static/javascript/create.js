@@ -6,11 +6,18 @@ window.onload = function ()
 
 function addRecordCreatedAlert(id)
 {
-    var html = `<div class="alert alert-success alert-dismissible fade show mt-3" role="alert"> \
-    A record with ID <a href="records/${id}" class="alert-link">${id}</a> created.\
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> \
+    var html = `\
+    <div> \
+    A record with ID <a href="records/${id}">${id}</a> created.\
+    <button type="button" onclick=" removeRecordCreatedAlert(event) ">X</button> \
     </div>`;
     document.body.insertAdjacentHTML('beforeend', html);
+}
+
+function removeRecordCreatedAlert(event)
+{
+    const clickedElement = event.target;
+    clickedElement.parentElement.remove();
 }
 
 function put(event)
@@ -19,7 +26,7 @@ function put(event)
 
     var titleValue = document.getElementById('title_textarea').value;
     var bodyValue = document.getElementById('body_textarea').value;
-    var url = 'http://0.0.0.0:5000/create';
+    var url = `${endpoint}/create`;
 
     request = {
         method: 'PUT',

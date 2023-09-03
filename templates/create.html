@@ -3,29 +3,33 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename= 'javascript/endpoint.js') }}"></script>
     <script src="{{ url_for('static', filename= 'javascript/create.js') }}"></script>
-
-
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
     <title>Record creation</title>
 </head>
 
-<body class="p-3">
+<body style="margin-inline: 2%;">
     <h1>Create new record</h1>
-    <div class="form-group">
-        <label style="font-size: larger;" for="title_textarea">Title</label>
-        <textarea id="title_textarea" class="form-control mt-1" rows="1"></textarea>
-        <label style="font-size: larger;" for="body_textarea">Body</label>
-        <textarea id="body_textarea" class="form-control mt-1" rows="3"></textarea>
-        <button id="submit" type="button" class="btn btn-primary mt-3">Submit</button>
-        <a id="back" class="btn btn-outline-secondary mt-3 mx-3" href="/">&lt; Back to records</a>
-    </div>
+    <!-- <div>
+        <input type="checkbox" role="switch" id="flexSwitchCheckChecked" checked="">
+    </div> -->
+
+    <form>
+        <div class="mb" style="display: grid;">
+            <label style="font-size: larger;" for="title_textarea">Title</label>
+            <textarea id="title_textarea" rows="1"></textarea>
+        </div>
+        <div class="mb" style="display: grid;">
+            <label style="font-size: larger;" for="body_textarea">Body</label>
+            <textarea id="body_textarea" rows="3"></textarea>
+        </div>
+        <div>
+            <button id="submit" type="button" class="primary">Submit</button>
+            <button id="back" type="button" onclick="window.location = '/'" class="primary">&lt; Back to records</button>
+        </div>
+    </form>
 
 </body>
 

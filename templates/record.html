@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <title>{{ record['title'] }}</title>
+</head>
+
+<body>
+    <div>
+        <h2 style="margin-bottom: 0;">{{ record['title'] }}</h2>
+        <a class="mb" style="display: block;">{{ record['_id'] }}</a>
+        <a>{{ record['body'] }}</a>
+    </div>
+</body>
+
+</html>

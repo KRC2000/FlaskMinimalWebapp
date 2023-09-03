@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from pymongo import MongoClient
+from bson.objectid import ObjectId
 
 DATABASE = True
 
@@ -20,6 +21,11 @@ db_stub_records = [
 		'title': 'Record Title 2',
 		'body': 'This is a body of second record'
 	}]
+
+@app.get('/records/<id>')
+def record(id: str):
+	record = records.find_one({ '_id': ObjectId(id)})
+	return render_template('record.html', record=record)
 
 @app.get('/create')
 def create():
