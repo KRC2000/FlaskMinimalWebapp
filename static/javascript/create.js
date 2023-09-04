@@ -2,7 +2,7 @@ window.onload = function ()
 {
     // Your JavaScript code to execute when the page and all resources are fully loaded
     document.getElementById('submit').addEventListener('click', put);
-};
+}
 
 function addRecordCreatedAlert(id)
 {

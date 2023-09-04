@@ -4,18 +4,20 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="../static/css/style.css">
+    <script src="{{ url_for('static', filename= 'javascript/index.js') }}"></script>
 	<link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Records</title>
 </head>
 
 <body>
-	  
-	<div class="mb" style="display: flex; align-items: center; height: 28px;">
-		<button id="new" type="button" class="fullheight" style="text-overflow: ellipsis;" onclick="window.location = '/create'">+ Add new record</button>
+	<div class="mb" style="display: flex; align-items: center; height: 4ex;">
+		<button id="new" type="button" class="fullheight" onclick="window.location = '/create'">+ Add new record</button>
 		<div class="fullheight" style="display: flex; align-items: center; justify-content: center; width: 35px; border: solid 1px #8f8f9d; background-color: #e9e9ed; margin-left: 2ex; border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
-			<img src="resources/search.png" width="20px" height="20px">
+			<img src="{{ url_for('static', filename= 'resources/search.png') }}" width="20px" height="20px">
 		</div>
-		<input class="fullheight" style="flex-grow: 1; border-width: 1px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; min-width: 30px;">
+		<input id="search" class="fullheight" onkeypress="buttonPress(event)" value="{{ searchstr }}" style="flex-grow: 1; box-sizing: border-box; border-width: 1px; min-width: 30px;">
+		<button id="search_accept" class="fullheight" onclick="searchstr()" style="flex-grow: 0; border-width: 1px; border-radius: 0; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">Search</button>
 	</div>
 
 	<div>

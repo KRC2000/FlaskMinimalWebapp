@@ -7,6 +7,9 @@
 }
 
 button {
+    height: 4ex;
+    border-radius: 10px; border-width: 1px;
+    cursor: pointer;
     white-space: nowrap; /* Prevent text from wrapping */
     overflow: hidden; /* Hide overflow text */
     text-overflow: ellipsis; /* Display ellipsis (...) for truncated text */

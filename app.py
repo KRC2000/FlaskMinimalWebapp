@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+import json
 
 DATABASE = True
 
@@ -50,7 +51,13 @@ def create_put():
 
 @app.get('/')
 def index():
-	return render_template('index.html', items=(records.find() if DATABASE else db_stub_records))
+	searchstr = request.args.get('searchstr')
+
+	if searchstr is not None:
+		cursor = records.find({ 'title': {"$regex": f".*{searchstr}.*", "$options": "i"} })
+		return render_template('index.html', items=cursor, searchstr=searchstr)
+
+	return render_template('index.html', items=records.find())
 
 # @app.put('/')
 # def index_put():

@@ -26,4 +26,5 @@ docker build -t flask_webserver .
 docker run --network network_main --name webserver -p 5000:5000 flask_webserver
 echo: INFO: Webserver image is built and container started.
 
+
 echo ----- Job finished: local_deploy.sh -------------------------------------------------
