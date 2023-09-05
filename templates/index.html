@@ -12,17 +12,17 @@
 
 <body>
 	<div class="mb" style="display: flex; align-items: center; height: 4ex;">
-		<button id="new" type="button" class="fullheight" onclick="window.location = '/create'">+ Add new record</button>
-		<div class="fullheight" style="display: flex; align-items: center; justify-content: center; width: 35px; border: solid 1px #8f8f9d; background-color: #e9e9ed; margin-left: 2ex; border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
+		<button id="new" type="button" class="fullheight rounded" onclick="window.location = '/create'">+ Add new record</button>
+		<div class="fullheight shaded rounded-left" style="display: flex; align-items: center; justify-content: center; width: 35px; border-width: 2px ; background-color: #e9e9ed; margin-left: 2ex;">
 			<img src="{{ url_for('static', filename= 'resources/search.png') }}" width="20px" height="20px">
 		</div>
-		<input id="search" class="fullheight" onkeypress="buttonPress(event)" value="{{ searchstr }}" style="flex-grow: 1; box-sizing: border-box; border-width: 1px; min-width: 30px;">
-		<button id="search_accept" class="fullheight" onclick="searchstr()" style="flex-grow: 0; border-width: 1px; border-radius: 0; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">Search</button>
+		<input id="search" class="fullheight shaded" onkeypress="buttonPress(event)" value="{{ searchstr }}" style="flex-grow: 1; box-sizing: border-box; min-width: 30px; border-width: 2px;">
+		<button id="search_accept" class="fullheight rounded-right" onclick="searchstr()" style="width: 9ex;">Search</button>
 	</div>
 
 	<div>
 		{% for item in items %}
-		<div class="card mb">
+		<div class="card shaded rounded mb">
 			<h2 style="margin-left: 0;"><a href="/records/{{ item['_id'] }}">{{ item['title'] }}</a></h5>
 			<p>
 				{{ item['body'] }}

@@ -7,6 +7,7 @@
     <script src="{{ url_for('static', filename= 'javascript/create.js') }}"></script>
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Record creation</title>
 </head>
 
@@ -16,18 +17,15 @@
         <input type="checkbox" role="switch" id="flexSwitchCheckChecked" checked="">
     </div> -->
 
-    <form>
-        <div class="mb" style="display: grid;">
-            <label style="font-size: larger;" for="title_textarea">Title</label>
-            <textarea id="title_textarea" rows="1"></textarea>
-        </div>
-        <div class="mb" style="display: grid;">
-            <label style="font-size: larger;" for="body_textarea">Body</label>
-            <textarea id="body_textarea" rows="3"></textarea>
-        </div>
-        <div>
-            <button id="submit" type="button" class="primary">Submit</button>
-            <button id="back" type="button" onclick="window.location = '/'" class="primary">&lt; Back to records</button>
+    <form style="display: grid;">
+        <!-- <label style="font-size: larger;" for="title_textarea">Title</label> -->
+        <textarea id="title_textarea" rows="1" placeholder="Record title" class="mb shaded rounded"></textarea>
+        <!-- <label style="font-size: larger;" for="body_textarea">Body</label> -->
+        <textarea id="body_textarea" rows="3" placeholder="Record body text" class="mb shaded rounded"></textarea>
+        <div style="height: 4ex;">
+            <button id="submit" type="button" class="fullheight rounded-left">Submit</button>
+            <button id="back" type="button" class="fullheight rounded-right" onclick="window.location = '/'"
+                style="background-color: transparent;">&lt; Back to records</button>
         </div>
     </form>
 

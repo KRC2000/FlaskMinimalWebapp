@@ -1,29 +1,35 @@
-.a-button {
-    color: black;
-    padding: 1ex;
-    border: solid black thin;
-    border-radius: 3px;
-    
+.shaded, button{
+    border-style: solid;
+    border-color: rgb(183, 183, 183) rgb(54, 54, 54) rgb(54, 54, 54) rgb(183, 183, 183);
+}
+
+.rounded {
+    border-radius: 10px; 
+}
+
+.rounded-right {
+    border-radius: 0px 10px 10px 0px; 
+}
+
+.rounded-left {
+    border-radius: 10px 0px 0px 10px; 
 }
 
 button {
     height: 4ex;
-    border-radius: 10px; border-width: 1px;
     cursor: pointer;
     white-space: nowrap; /* Prevent text from wrapping */
     overflow: hidden; /* Hide overflow text */
     text-overflow: ellipsis; /* Display ellipsis (...) for truncated text */
 }
 
-div .fullheight {
+.fullheight {
     height: 100%;
     box-sizing: border-box;
 }
 
 .card {
-    border: solid black thin;
-    border-radius: 10px;
-    
+    border-style: solid ;
 }
 
 .card * {
