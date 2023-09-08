@@ -18,9 +18,9 @@ ssh ${REMOTE_USER}@${REMOTE_HOST} << 'EOF'
 	else
 		echo INFO: FlaskMinimalWebapp folder absent, cloning
 		git clone https://KRC2000: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@github.com/KRC2000/FlaskMinimalWebapp.git
+		cd FlaskMinimalWebapp
 	fi
 
-	cd FlaskMinimalWebapp
 	
 	# ensure that "network_main" docker network exists
 	./ensure_network_main.sh
@@ -42,7 +42,7 @@ ssh ${REMOTE_USER}@${REMOTE_HOST} << 'EOF'
 	# network: network_main
 	# external port: 80
 	# name: webserver
-	docker build -t flask_webserver .
+	docker build --build-arg ENDPOINT="188.34.192.184" -t flask_webserver .
 	docker run --network network_main --name webserver -p 80:5000 flask_webserver
 	echo: INFO: Webserver image is built and container started.
 

@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 import json
+import sys
 
 DATABASE = True
 
@@ -72,5 +73,10 @@ def index():
 
 
 if __name__ == '__main__':
+	sys.argv
+	with open('static/javascript/endpoint.js', 'w') as file:
+		file.write(f'const endpoint = "{sys.argv[1]}"')
+		app.logger.info(f'Endpoint set to {sys.argv[1]}')
+
 	app.debug = True
 	app.run(host='0.0.0.0', port=5000)

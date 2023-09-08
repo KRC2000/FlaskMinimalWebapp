@@ -22,9 +22,9 @@ echo INFO: MongoDB container started.
 # external port: 80
 # name: webserver
 
-docker build -t flask_webserver .
+docker build --build-arg ENDPOINT="0.0.0.0" -t flask_webserver .
 docker run --network network_main --name webserver -p 5000:5000 flask_webserver
-echo: INFO: Webserver image is built and container started.
+echo INFO: Webserver image is built and container started.
 
 
 echo ----- Job finished: local_deploy.sh -------------------------------------------------
