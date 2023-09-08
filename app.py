@@ -75,7 +75,7 @@ def index():
 if __name__ == '__main__':
 	sys.argv
 	with open('static/javascript/endpoint.js', 'w') as file:
-		file.write(f'const endpoint = "{sys.argv[1]}"')
+		file.write(f'const endpoint = "http://{sys.argv[1]}"')
 		app.logger.info(f'Endpoint set to {sys.argv[1]}')
 
 	app.debug = True
