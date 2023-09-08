@@ -13,8 +13,7 @@ ssh ${REMOTE_USER}@${REMOTE_HOST} << 'EOF'
 	if [ -d "FlaskMinimalWebapp" ]; then
 		echo INFO: FlaskMinimalWebapp folder already exists, pulling changes
 		cd FlaskMinimalWebapp
-		git fetch
-		git pull
+		git pull --rebase
 	else
 		echo INFO: FlaskMinimalWebapp folder absent, cloning
 		git clone https://KRC2000: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@github.com/KRC2000/FlaskMinimalWebapp.git
