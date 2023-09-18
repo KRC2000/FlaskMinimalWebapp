@@ -20,6 +20,10 @@
     <form style="display: grid;">
         <!-- <label style="font-size: larger;" for="title_textarea">Title</label> -->
         <textarea id="title_textarea" rows="1" placeholder="Record title" class="mb shaded rounded" style="font-size: 3ex; "></textarea>
+        <div class="mb" style="height: 3ex;">
+            <input id="tag_in" onchange="tagInputUpdate(event)" placeholder="Add tags" class="shaded rounded-left fullheight">
+            <button class="shaded rounded-right fullheight" style="width: 4ex;" onclick="addTag(event)" type="button" >+</button>
+        </div>
         <!-- <label style="font-size: larger;" for="body_textarea">Body</label> -->
         <textarea id="body_textarea" rows="3" placeholder="Record body text" class="mb shaded rounded" style="font-size: 2ex;"></textarea>
         <div style="height: 4ex;">

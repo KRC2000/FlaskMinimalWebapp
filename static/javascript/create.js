@@ -4,6 +4,17 @@ window.onload = function ()
     document.getElementById('submit').addEventListener('click', put);
 }
 
+function tagInputUpdate(event)
+{
+    const parentDiv = event.target.parentElement;
+}
+
+function addTag(event)
+{
+    var value = document.getElementById('tag_in').value
+    event.target.parentElement.insertAdjacentHTML('beforeend', `<a>${value}</a>`)
+}
+
 function addRecordCreatedAlert(id)
 {
     var html = `\
